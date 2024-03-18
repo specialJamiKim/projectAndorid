@@ -5,7 +5,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- 기기의 계정에 액세스할 수 있도록 권한을 추가합니다. -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
@@ -18,7 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectAndroid"
         tools:targetApi="31">
-
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat"/>
         <activity
             android:name=".NaviActivity"
             android:exported="true"
@@ -27,6 +29,7 @@
             tools:ignore="DuplicateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
