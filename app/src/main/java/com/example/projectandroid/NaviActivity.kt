@@ -10,6 +10,7 @@ import com.example.projectandroid.databinding.ActivityNaviBinding
 private const val TAG_CALENDER = "calender_fragment"
 private const val TAG_HOME = "home_fragment"
 private const val TAG_MY_PAGE = "my_page_fragment"
+private const val TAG_LOGIN_PAGE = "sign_fragment"
 
 class NaviActivity : AppCompatActivity() {
 
@@ -27,7 +28,8 @@ class NaviActivity : AppCompatActivity() {
             when(item.itemId) {
                 R.id.calenderFragment -> setFragment(TAG_CALENDER, CalenderFragment())
                 R.id.homeFragment -> setFragment(TAG_HOME, HomeFragment())
-                R.id.myPageFragment-> setFragment(TAG_MY_PAGE, MyPageFragment())
+                //R.id.myPageFragment-> setFragment(TAG_MY_PAGE, MyPageFragment())
+                R.id.myPageFragment-> setFragment(TAG_LOGIN_PAGE, SignFragment())
             }
             true
         }
