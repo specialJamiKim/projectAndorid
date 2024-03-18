@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -77,6 +78,7 @@ dependencies {
     // Google Play services
     implementation ("com.google.gms:google-services:4.3.15")
     implementation ("com.google.firebase:firebase-auth:22.0.0")
-    implementation ("com.google.firebase:firebase-bom:32.0.0")
+    implementation("com.google.firebase:firebase-analytics")
+    implementation(platform("com.google.firebase:firebase-bom:32.7.4"))
     implementation ("com.google.android.gms:play-services-auth:20.5.0")
 }

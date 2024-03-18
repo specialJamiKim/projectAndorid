@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.projectandroid.databinding.FragmentSignBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -73,5 +74,20 @@ class SignFragment : Fragment() {
             startActivity(Intent(requireContext(), SignFragment::class.java))
             finish()
         }
+    }
+
+    // 구글 로그인이 성공한 경우 처리하는 메서드
+    private fun handleGoogleSignInSuccess(account: GoogleSignInAccount) {
+        val userName = account.displayName
+        val userEmail = account.email
+
+        Log.d(">>" , "로그인 성공! 이름 $userName")
+
+        // 사용자 이름과 이메일을 가져온 후 텍스트뷰에 설정
+        binding.userId.text = "User Name: $userName"
+        binding.userName.text = "User Email: $userEmail"
+
+        // 회원가입 화면으로 이동
+        moveSignUpActivity()
     }
 }
