@@ -13,7 +13,7 @@ private const val TAG_MY_PAGE = "my_page_fragment"
 private const val TAG_LOGIN_PAGE = "sign_fragment"
 
 class NaviActivity : AppCompatActivity() {
-
+    //
     private lateinit var binding : ActivityNaviBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
