@@ -70,6 +70,7 @@ dependencies {
     implementation(libs.play.services.base)
     implementation(libs.androidx.databinding.runtime)
     implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

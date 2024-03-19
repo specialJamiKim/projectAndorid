@@ -1,6 +1,7 @@
 // NaviActivity.kt
 package com.example.projectandroid
 
+import HomeFragment
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
