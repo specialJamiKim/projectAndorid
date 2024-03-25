@@ -19,6 +19,8 @@ private const val TAG_MY_PAGE = "my_page_fragment"
 
 class NaviActivity : AppCompatActivity() {
 
+
+
     private lateinit var binding: ActivityNaviBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
@@ -28,6 +30,8 @@ class NaviActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
+
+        //파이어 베이스 사용부분
 
         // 사용자가 로그인되어 있는지 확인
         val currentUser = firebaseAuth.currentUser

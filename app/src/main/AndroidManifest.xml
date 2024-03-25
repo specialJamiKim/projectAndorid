@@ -18,21 +18,20 @@
         android:theme="@style/Theme.ProjectAndroid"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat"/>
-        <activity
             android:name=".NaviActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat"
             tools:ignore="DuplicateActivity">
-            <intent-filter>
+            <intent-filter> <!-- NaviActivity를 메인으로 설정 -->
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat"/>
     </application>
 
 </manifest>
