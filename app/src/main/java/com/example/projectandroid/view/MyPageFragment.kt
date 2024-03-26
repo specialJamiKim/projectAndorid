@@ -27,6 +27,7 @@ class MyPageFragment : Fragment() {
         }
 
 
+
         return view
     }
 

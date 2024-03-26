@@ -7,9 +7,9 @@
         android:icon="@drawable/ic_home"/>
 
     <item
-        android:id="@+id/calenderFragment"
-        android:title="일정"
-        android:icon="@drawable/ic_calendar_month"/>
+        android:id="@+id/mapFragment"
+        android:icon="@drawable/ic_calendar_month"
+        android:title="내주변" />
 
     <item
         android:id="@+id/myPageFragment"
