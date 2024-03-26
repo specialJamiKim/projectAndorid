@@ -24,73 +24,6 @@ import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
-    /* private lateinit var binding: ActivityLoginBinding
-     private lateinit var firebaseAuth: FirebaseAuth
-
-     override fun onCreate(savedInstanceState: Bundle?) {
-         super.onCreate(savedInstanceState)
-         binding = ActivityLoginBinding.inflate(layoutInflater)
-         setContentView(binding.root)
-
-         firebaseAuth = FirebaseAuth.getInstance()
-
-         binding.run {
-             signInBtn.setOnClickListener {
-                 CoroutineScope(Dispatchers.IO).launch {
-                     val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                         .requestIdToken(getString(R.string.google_login_client_id))
-                         .requestEmail()
-                         .build()
-                     val googleSignInClient = GoogleSignIn.getClient(this@LoginActivity, gso)
-                     val signInIntent = googleSignInClient.signInIntent
-                     startActivityForResult(signInIntent, RC_SIGN_IN)
-                 }
-             }
-         }
-     }
-
-     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-         super.onActivityResult(requestCode, resultCode, data)
-
-         if (requestCode == RC_SIGN_IN) {
-             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-             try {
-                 val account = task.getResult(ApiException::class.java)
-                 account?.let {
-                     firebaseAuthWithGoogle(it.idToken!!)
-                 }
-             } catch (e: ApiException) {
-                 // Google Sign In failed
-                 e.printStackTrace()
-             }
-         }
-     }
-
-     private fun firebaseAuthWithGoogle(idToken: String) {
-         val credential = GoogleAuthProvider.getCredential(idToken, null)
-         firebaseAuth.signInWithCredential(credential)
-             .addOnCompleteListener(this) { task ->
-                 if (task.isSuccessful) {
-                     // Sign in success, update UI with the signed-in user's information
-                     val user = firebaseAuth.currentUser
-                     user?.let {
-                         // Show toast message
-                         Toast.makeText(this, "반갑습니다! ${user.displayName}님", Toast.LENGTH_SHORT).show()
-                         // Go back to MyPageFragment
-                         val intent = Intent(this, NaviActivity::class.java)
-                         startActivity(intent)
-                         finish()
-                     }
-                 } else {
-                     // If sign in fails, display a message to the user.
-                     // ...
-                 }
-             }
-     }
-
-     companion object {
-         private const val RC_SIGN_IN = 9001
-     }*/
 
     lateinit var mGoogleSingInClient: GoogleSignInClient
     lateinit var resultLauncher: ActivityResultLauncher<Intent>
@@ -161,11 +94,26 @@ class LoginActivity : AppCompatActivity() {
     }
 
     //로그아웃
+    //로그아웃
     private fun signOut() {
-        mGoogleSingInClient.signOut().addOnCompleteListener(this) {
-            //처리내용
+        val account = GoogleSignIn.getLastSignedInAccount(this)
+        if (account != null) {
+            mGoogleSingInClient.signOut().addOnCompleteListener(this) {
+                // 로그아웃 완료 후 수행할 작업을 여기에 추가
+                // 예: Toast 또는 다른 UI 업데이트, 앱 상태 업데이트 등
+                Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            // 이미 로그아웃된 상태
+            Toast.makeText(this, "Already logged out", Toast.LENGTH_SHORT).show()
         }
     }
+
+    /*    private fun signOut() {
+            mGoogleSingInClient.signOut().addOnCompleteListener(this) {
+                //처리내용
+            }
+        }*/
 
     //로그인 세션 만료
     private fun revokeAccess() {
@@ -191,5 +139,73 @@ class LoginActivity : AppCompatActivity() {
             Log.d("로그인한 유저의 프로필 사진 주소", photoUrl)
         }
     }
+
+    /* private lateinit var binding: ActivityLoginBinding
+     private lateinit var firebaseAuth: FirebaseAuth
+
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+         binding = ActivityLoginBinding.inflate(layoutInflater)
+         setContentView(binding.root)
+
+         firebaseAuth = FirebaseAuth.getInstance()
+
+         binding.run {
+             signInBtn.setOnClickListener {
+                 CoroutineScope(Dispatchers.IO).launch {
+                     val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                         .requestIdToken(getString(R.string.google_login_client_id))
+                         .requestEmail()
+                         .build()
+                     val googleSignInClient = GoogleSignIn.getClient(this@LoginActivity, gso)
+                     val signInIntent = googleSignInClient.signInIntent
+                     startActivityForResult(signInIntent, RC_SIGN_IN)
+                 }
+             }
+         }
+     }
+
+     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+         super.onActivityResult(requestCode, resultCode, data)
+
+         if (requestCode == RC_SIGN_IN) {
+             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+             try {
+                 val account = task.getResult(ApiException::class.java)
+                 account?.let {
+                     firebaseAuthWithGoogle(it.idToken!!)
+                 }
+             } catch (e: ApiException) {
+                 // Google Sign In failed
+                 e.printStackTrace()
+             }
+         }
+     }
+
+     private fun firebaseAuthWithGoogle(idToken: String) {
+         val credential = GoogleAuthProvider.getCredential(idToken, null)
+         firebaseAuth.signInWithCredential(credential)
+             .addOnCompleteListener(this) { task ->
+                 if (task.isSuccessful) {
+                     // Sign in success, update UI with the signed-in user's information
+                     val user = firebaseAuth.currentUser
+                     user?.let {
+                         // Show toast message
+                         Toast.makeText(this, "반갑습니다! ${user.displayName}님", Toast.LENGTH_SHORT).show()
+                         // Go back to MyPageFragment
+                         val intent = Intent(this, NaviActivity::class.java)
+                         startActivity(intent)
+                         finish()
+                     }
+                 } else {
+                     // If sign in fails, display a message to the user.
+                     // ...
+                 }
+             }
+     }
+
+     companion object {
+         private const val RC_SIGN_IN = 9001
+     }*/
 
 }
