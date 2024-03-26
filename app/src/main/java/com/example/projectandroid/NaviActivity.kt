@@ -19,7 +19,7 @@ private const val TAG_MY_PAGE = "my_page_fragment"
 
 class NaviActivity : AppCompatActivity() {
 
-
+    //
 
     private lateinit var binding: ActivityNaviBinding
     private lateinit var firebaseAuth: FirebaseAuth
