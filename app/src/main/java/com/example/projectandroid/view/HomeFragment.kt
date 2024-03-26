@@ -1,4 +1,4 @@
-/*
+package com.example.projectandroid.view/*
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -58,6 +58,7 @@ class HomeFragment : Fragment() {
 }
 */
 
+import BoardDataAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
