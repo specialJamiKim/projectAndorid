@@ -12,38 +12,75 @@
         android:layout_height="match_parent">
 
         <ImageButton
-            android:id="@+id/signInBtn"
+            android:id="@+id/btnSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/android_light_rd"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.544"
+            app:layout_constraintHorizontal_bias="0.201"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.797" />
+            app:layout_constraintVertical_bias="0.659" />
 
         <TextView
-            android:id="@+id/userName"
-            android:layout_width="107dp"
+            android:id="@+id/txUserId"
+            android:layout_width="90dp"
+            android:layout_height="29dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/userId"
+            app:layout_constraintHorizontal_bias="0.158"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.165" />
+
+        <TextView
+            android:id="@+id/txUserPw"
+            android:layout_width="97dp"
             android:layout_height="32dp"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/userPw"
+            app:layout_constraintHorizontal_bias="0.162"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.141" />
+            app:layout_constraintVertical_bias="0.304" />
 
-        <TextView
+        <EditText
+            android:id="@+id/userPw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            tools:layout_editor_absoluteX="165dp"
+            tools:layout_editor_absoluteY="200dp" />
+
+        <EditText
             android:id="@+id/userId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.308" />
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            tools:layout_editor_absoluteX="166dp"
+            tools:layout_editor_absoluteY="111dp" />
+
+        <Button
+            android:id="@+id/btnSignOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그아웃"
+            app:layout_constraintTop_toBottomOf="@+id/btnSignIn"
+            tools:layout_editor_absoluteX="60dp" />
+
+        <Button
+            android:id="@+id/btnGetProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:text="Profile"
+            app:layout_constraintTop_toBottomOf="@+id/btnSignIn"
+            tools:layout_editor_absoluteX="174dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
